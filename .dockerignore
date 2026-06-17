@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.git
+.env
+.env.local
+*.log
+.kiro
+.vscode
+.idea
+Thumbs.db
+.DS_Store
