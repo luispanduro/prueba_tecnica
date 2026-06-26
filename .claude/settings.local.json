@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x \"/c/Users/luisp/Documents/Prueba_tecnica/toka-user-mgmt/scripts/create-multiple-dbs.sh\")",
+      "PowerShell(npm *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(node -e \"const {BaseCallbackHandler} = require\\('@langchain/core/callbacks/base'\\); console.log\\(typeof BaseCallbackHandler\\)\" 2>&1)",
+      "PowerShell(Receive-Job *)",
+      "PowerShell(ConvertTo-Json *)",
+      "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\until-async\\\\package.json\" | ConvertFrom-Json; [PSCustomObject]@{ version=$p.version; main=$p.main; module=$p.module; type=$p.type; exports=\\($p.exports | ConvertTo-Json -Depth 3 -Compress\\) })",
+      "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\outvariant\\\\package.json\" | ConvertFrom-Json; [PSCustomObject]@{ version=$p.version; type=$p.type; main=$p.main })",
+      "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\@open-draft\\\\deferred-promise\\\\package.json\" | ConvertFrom-Json; [PSCustomObject]@{ version=$p.version; type=$p.type; main=$p.main; exports=\\($p.exports | ConvertTo-Json -Depth 4 -Compress\\) })",
+      "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\jest-environment-jsdom\\\\package.json\" | ConvertFrom-Json; Write-Host \"jest-environment-jsdom: $\\($p.version\\)\"; $jsdom = $p.dependencies.jsdom; Write-Host \"jsdom dep: $jsdom\")"
+    ]
+  }
+}
