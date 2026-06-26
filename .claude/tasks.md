@@ -2123,10 +2123,10 @@ export default {
 ```
 
 **Criterios de aceptación**:
-- [ ] `npm run test` pasa todos los tests
-- [ ] `docker build -t frontend .` en `frontend/` completa sin errores
-- [ ] El Dockerfile usa multi-stage (build + nginx)
-- [ ] `nginx.conf` tiene fallback a `index.html` para rutas SPA
+- [x] `npm run test` pasa todos los tests
+- [x] `docker build -t frontend .` en `frontend/` completa sin errores
+- [x] El Dockerfile usa multi-stage (build + nginx)
+- [x] `nginx.conf` tiene fallback a `index.html` para rutas SPA
 
 → Depende de: TASK-033
 
@@ -2147,10 +2147,10 @@ Redactar respuesta completa al Ejercicio 4. El documento debe contener EXACTAMEN
 5. **Comunicación a stakeholders**: los 4 mensajes del design §17.4 con texto completo
 
 **Criterios de aceptación**:
-- [ ] Todas las hipótesis están ordenadas por prioridad con justificación
-- [ ] Cada paso del diagnóstico incluye el comando exacto a ejecutar
-- [ ] Los mensajes a stakeholders tienen variante técnica y de negocio
-- [ ] El documento incluye los comandos de Docker Compose para verificar cada hipótesis
+- [x] Todas las hipótesis están ordenadas por prioridad con justificación
+- [x] Cada paso del diagnóstico incluye el comando exacto a ejecutar
+- [x] Los mensajes a stakeholders tienen variante técnica y de negocio
+- [x] El documento incluye los comandos de Docker Compose para verificar cada hipótesis
 
 ---
 
@@ -2195,8 +2195,8 @@ Contenido:
 10. **Apagar el sistema**: `docker compose down` (agrega `-v` para eliminar volúmenes)
 
 **Criterios de aceptación**:
-- [ ] El runbook permite levantar el sistema desde cero siguiendo solo sus instrucciones
-- [ ] Incluye comando para ejecutar frontend en modo dev aislado
+- [x] El runbook permite levantar el sistema desde cero siguiendo solo sus instrucciones
+- [x] Incluye comando para ejecutar frontend en modo dev aislado
 
 ---
 
