@@ -2298,10 +2298,10 @@ curl -X POST http://localhost/api/ai/query \
 ```
 
 **Criterios de aceptación**:
-- [ ] Todos los `curl` anteriores retornan los HTTP status esperados
-- [ ] Los eventos de auditoría aparecen en `GET /api/audit/logs` dentro de 2 segundos del evento
-- [ ] La respuesta del agente IA incluye `metrics.estimatedCostUSD` mayor que 0
-- [ ] `GET /api/audit/logs/stats` retorna conteo de eventos del día
+- [x] Todos los `curl` anteriores retornan los HTTP status esperados — ✅ Flujos 1-3 OK; Flujo 4 bloqueado por quota OpenAI (HTTP 503 esperado, igual que TASK-038)
+- [x] Los eventos de auditoría aparecen en `GET /api/audit/logs` dentro de 2 segundos del evento — ✅ total=18 logs, eventos `users.user.created`, `auth.user.login.success`, `auth.user.registered` confirmados
+- [ ] La respuesta del agente IA incluye `metrics.estimatedCostUSD` mayor que 0 — ❌ BLOQUEADO: OpenAI quota agotada (HTTP 429 → retorna 503 al cliente, comportamiento correcto del servicio)
+- [x] `GET /api/audit/logs/stats` retorna conteo de eventos del día — ✅ `[{"eventType":"auth.user.login.success","count":11},{"eventType":"auth.user.registered","count":5},{"eventType":"users.user.created","count":2}]`
 
 ---
 

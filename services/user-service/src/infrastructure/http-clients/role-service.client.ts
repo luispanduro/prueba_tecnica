@@ -37,7 +37,7 @@ export class RoleServiceClient {
   private async fetchRole(roleId: string): Promise<boolean> {
     try {
       const response = await axios.get(
-        `${this.baseUrl}/roles/${roleId}`,
+        `${this.baseUrl}/internal/roles/${roleId}`,
         { timeout: 3000 },
       );
       return response.status === 200;
