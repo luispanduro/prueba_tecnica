@@ -3,7 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import Redis from 'ioredis';
 import { TokenRedisRepository } from './token.redis-repository';
 
-export const REDIS_CLIENT = 'REDIS_CLIENT';
+import { REDIS_CLIENT } from './redis.constants';
+export { REDIS_CLIENT };
 
 @Module({
   imports: [ConfigModule],
@@ -22,6 +23,6 @@ export const REDIS_CLIENT = 'REDIS_CLIENT';
     },
     TokenRedisRepository,
   ],
-  exports: [TokenRedisRepository],
+  exports: [TokenRedisRepository, REDIS_CLIENT],
 })
 export class RedisModule {}

@@ -69,7 +69,7 @@ export class AiController {
 
     let qdrantStatus = 'ok';
     try {
-      await axios.get(`${qdrantUrl}/health`, { timeout: 3000 });
+      await axios.get(`${qdrantUrl}/healthz`, { timeout: 3000 });
     } catch {
       qdrantStatus = 'unavailable';
     }

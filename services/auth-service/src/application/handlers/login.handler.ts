@@ -3,6 +3,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import { Email } from '../../domain/value-objects/email.vo';
 import {
   CREDENTIALS_REPOSITORY,
@@ -53,15 +54,29 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
     }
 
     const jti = uuidv4();
-    const expiresIn = this.config.get<number>('JWT_EXPIRES_IN') ?? 900;
-    const refreshTtl = this.config.get<number>('REFRESH_TOKEN_TTL') ?? 604800;
+    const expiresIn = parseInt(this.config.get('JWT_EXPIRES_IN') ?? '900', 10);
+    const refreshTtl = parseInt(this.config.get('REFRESH_TOKEN_TTL') ?? '604800', 10);
+
+    let userRoleIds: string[] = [];
+    let userPermissions: string[] = [];
+    try {
+      const userServiceUrl = this.config.get<string>('USER_SERVICE_URL') ?? 'http://user-service:3002';
+      const { data } = await axios.get<{ roleIds: string[]; permissions: string[] }>(
+        `${userServiceUrl}/internal/users/permissions?email=${encodeURIComponent(credentials.email.getValue())}`,
+        { timeout: 3000 },
+      );
+      userRoleIds = data.roleIds ?? [];
+      userPermissions = data.permissions ?? [];
+    } catch {
+      // user-service unavailable — token will have empty roles/permissions
+    }
 
     const accessToken = this.jwtService.sign(
       {
         sub: credentials.id,
         email: credentials.email.getValue(),
-        roles: [] as string[],
-        permissions: [] as string[],
+        roles: userRoleIds,
+        permissions: userPermissions,
         jti,
       },
       { expiresIn },

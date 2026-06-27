@@ -11,6 +11,7 @@ import { METRIC_REPOSITORY } from './domain/repositories/metric.repository.inter
 import { JwtStrategy } from './infrastructure/http/guards/jwt.strategy';
 import { PermissionsGuard } from './infrastructure/http/guards/permissions.guard';
 import { AiController } from './infrastructure/http/controllers/ai.controller';
+import { AiHealthController } from './infrastructure/http/controllers/health.controller';
 import { UserServiceClient } from './infrastructure/http-clients/user-service.client';
 import { MetricRepository } from './infrastructure/persistence/typeorm/metric.repository';
 import { QueryMetricTypeormEntity } from './infrastructure/persistence/typeorm/entities/query-metric.typeorm-entity';
@@ -35,7 +36,7 @@ import { QueryMetricTypeormEntity } from './infrastructure/persistence/typeorm/e
     }),
     TypeOrmModule.forFeature([QueryMetricTypeormEntity]),
   ],
-  controllers: [AiController],
+  controllers: [AiController, AiHealthController],
   providers: [
     IndexDocumentsUseCase,
     QueryAgentUseCase,

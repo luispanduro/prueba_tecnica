@@ -14,7 +14,17 @@
       "PowerShell(docker compose version *)",
       "PowerShell(Copy-Item *)",
       "PowerShell(docker version *)",
-      "PowerShell(docker compose up *)"
+      "PowerShell(docker compose up *)",
+      "Bash(docker --version)",
+      "Bash(docker compose *)",
+      "Bash(xargs grep -l \"RabbitmqModule\")",
+      "Bash(docker exec *)",
+      "Bash(xargs grep -l \"health\")",
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost/)",
+      "Bash(curl *)",
+      "Bash(Start-Sleep -Seconds 20)",
+      "Bash(python3 -c \"import sys,base64,json; data=sys.stdin.read\\(\\).strip\\(\\); padded=data+'=='*\\(\\(-len\\(data\\)\\)%4\\); print\\(json.dumps\\(json.loads\\(base64.b64decode\\(padded\\)\\),indent=2\\)\\)\")"
     ]
   }
 }

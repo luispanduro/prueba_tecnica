@@ -3,7 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { connect } from 'amqp-connection-manager';
 import { RabbitmqEventPublisher } from './event-publisher';
 
-export const RABBITMQ_CLIENT = 'RABBITMQ_CLIENT';
+import { RABBITMQ_CLIENT } from './rabbitmq.constants';
+export { RABBITMQ_CLIENT };
 
 @Module({
   imports: [ConfigModule],
@@ -17,6 +18,6 @@ export const RABBITMQ_CLIENT = 'RABBITMQ_CLIENT';
     },
     RabbitmqEventPublisher,
   ],
-  exports: [RabbitmqEventPublisher],
+  exports: [RabbitmqEventPublisher, RABBITMQ_CLIENT],
 })
 export class RabbitmqModule {}

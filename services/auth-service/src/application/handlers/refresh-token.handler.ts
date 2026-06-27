@@ -46,8 +46,8 @@ export class RefreshTokenHandler
 
     await this.tokenRepo.deleteRefreshToken(userId, tokenId);
 
-    const expiresIn = this.config.get<number>('JWT_EXPIRES_IN') ?? 900;
-    const refreshTtl = this.config.get<number>('REFRESH_TOKEN_TTL') ?? 604800;
+    const expiresIn = parseInt(this.config.get('JWT_EXPIRES_IN') ?? '900', 10);
+    const refreshTtl = parseInt(this.config.get('REFRESH_TOKEN_TTL') ?? '604800', 10);
     const jti = uuidv4();
 
     const accessToken = this.jwtService.sign(

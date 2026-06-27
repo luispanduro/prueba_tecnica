@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { RoleDatabaseModule } from '../infrastructure/persistence/typeorm/role-database.module';
+import { RabbitmqModule } from '../infrastructure/messaging/rabbitmq/rabbitmq.module';
 import { CreateRoleHandler } from './commands/create-role.command';
 import { UpdateRoleHandler } from './commands/update-role.command';
 import { DeleteRoleHandler } from './commands/delete-role.command';
@@ -28,6 +30,8 @@ const QueryHandlers = [
 @Module({
   imports: [
     CqrsModule,
+    RoleDatabaseModule,
+    RabbitmqModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ChannelWrapper } from 'amqp-connection-manager';
 import { DomainEvent } from '../../../domain/events/domain-event.interface';
-import { RABBITMQ_CLIENT } from './rabbitmq.module';
+import { RABBITMQ_CLIENT } from './rabbitmq.constants';
 
 const EXCHANGE = 'toka.events';
 

@@ -29,7 +29,9 @@ export class HealthController {
   async health(): Promise<HealthResponse> {
     const checks = await Promise.allSettled(
       Object.entries(this.serviceUrls).map(async ([name, url]) => {
-        await axios.get(`${url}/health`, { timeout: 3000 });
+        const healthPath = name === 'ai' ? '/ai/health' : '/health';
+        const timeout = name === 'ai' ? 8000 : 3000;
+        await axios.get(`${url}${healthPath}`, { timeout });
         return name;
       }),
     );

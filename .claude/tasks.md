@@ -2228,16 +2228,16 @@ docker compose up --build
 ```
 
 Verificar uno a uno:
-- [ ] `docker compose ps` muestra los 12 servicios con estado `healthy`
-- [ ] `curl http://localhost/` retorna la SPA React (HTML con `<div id="root">`)
-- [ ] `curl http://localhost:3000/health` retorna `{"status":"ok",...}` con las 5 dependencias `ok`
-- [ ] `curl http://localhost:3001/health` retorna `{"status":"ok","dependencies":{"database":"ok","redis":"ok","rabbitmq":"ok"}}`
-- [ ] `curl http://localhost:3002/health` retorna status `ok`
-- [ ] `curl http://localhost:3003/health` retorna status `ok`
-- [ ] `curl http://localhost:3004/health` retorna status `ok` con Qdrant y OpenAI conectados
-- [ ] `curl http://localhost:3005/health` retorna status `ok`
-- [ ] RabbitMQ UI en `http://localhost:15672` accesible con credenciales del `.env`
-- [ ] Qdrant en `http://localhost:6333/dashboard` muestra la colección `system_knowledge` con vectores
+- [x] `docker compose ps` muestra los 12 servicios con estado `healthy` (11 con healthcheck en `healthy`; frontend en `Up` — sin healthcheck por diseño, ver TASK-004)
+- [x] `curl http://localhost/` retorna la SPA React (HTML con `<div id="root">`)
+- [x] `curl http://localhost:3000/health` retorna `{"status":"ok",...}` con las 5 dependencias `ok`
+- [x] `curl http://localhost:3001/health` retorna `{"status":"ok","dependencies":{"database":"ok","redis":"ok","rabbitmq":"ok"}}`
+- [x] `curl http://localhost:3002/health` retorna status `ok`
+- [x] `curl http://localhost:3003/health` retorna status `ok`
+- [x] `curl http://localhost:3004/health` retorna status `ok` con Qdrant y OpenAI conectados
+- [x] `curl http://localhost:3005/health` retorna status `ok`
+- [x] RabbitMQ UI en `http://localhost:15672` accesible con credenciales del `.env`
+- [ ] Qdrant en `http://localhost:6333/dashboard` muestra la colección `system_knowledge` con vectores — ❌ BLOQUEADO: la API key de OpenAI tiene quota agotada (HTTP 429 InsufficientQuotaError) al generar embeddings; la colección no se creó en el arranque
 
 → Depende de: todas las tasks de FASE 2 a 8
 

@@ -27,6 +27,6 @@ import { ROLE_REPOSITORY } from '../../../domain/repositories/role.repository.in
     RoleTypeormRepository,
     { provide: ROLE_REPOSITORY, useClass: RoleTypeormRepository },
   ],
-  exports: [ROLE_REPOSITORY],
+  exports: [ROLE_REPOSITORY, TypeOrmModule],
 })
 export class RoleDatabaseModule {}

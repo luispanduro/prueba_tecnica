@@ -27,6 +27,6 @@ import { USER_REPOSITORY } from '../../../domain/repositories/user.repository.in
     UserTypeormRepository,
     { provide: USER_REPOSITORY, useClass: UserTypeormRepository },
   ],
-  exports: [USER_REPOSITORY],
+  exports: [USER_REPOSITORY, TypeOrmModule],
 })
 export class UserDatabaseModule {}

@@ -9,6 +9,7 @@ import { JwtStrategy } from './infrastructure/http/guards/jwt.strategy';
 import { JwtAuthGuard } from './infrastructure/http/guards/jwt-auth.guard';
 import { RolesController } from './infrastructure/http/controllers/roles.controller';
 import { HealthController } from './infrastructure/http/controllers/health.controller';
+import { RoleInternalController } from './infrastructure/http/controllers/internal.controller';
 import { LoggingInterceptor } from './infrastructure/http/interceptors/logging.interceptor';
 
 @Module({
@@ -19,7 +20,7 @@ import { LoggingInterceptor } from './infrastructure/http/interceptors/logging.i
     RabbitmqModule,
     RoleApplicationModule,
   ],
-  controllers: [RolesController, HealthController],
+  controllers: [RolesController, HealthController, RoleInternalController],
   providers: [
     JwtStrategy,
     JwtAuthGuard,

@@ -30,7 +30,7 @@ export const QUERY_HANDLERS = [ValidateTokenHandler];
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
         secret: config.get<string>('JWT_SECRET'),
-        signOptions: { expiresIn: config.get<number>('JWT_EXPIRES_IN') ?? 900 },
+        signOptions: { expiresIn: parseInt(config.get('JWT_EXPIRES_IN') ?? '900', 10) },
       }),
       inject: [ConfigService],
     }),

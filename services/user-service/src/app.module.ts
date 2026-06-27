@@ -10,6 +10,7 @@ import { JwtAuthGuard } from './infrastructure/http/guards/jwt-auth.guard';
 import { PermissionsGuard } from './infrastructure/http/guards/permissions.guard';
 import { UsersController } from './infrastructure/http/controllers/users.controller';
 import { HealthController } from './infrastructure/http/controllers/health.controller';
+import { InternalController } from './infrastructure/http/controllers/internal.controller';
 import { LoggingInterceptor } from './infrastructure/http/interceptors/logging.interceptor';
 
 @Module({
@@ -20,7 +21,7 @@ import { LoggingInterceptor } from './infrastructure/http/interceptors/logging.i
     RabbitmqModule,
     UserApplicationModule,
   ],
-  controllers: [UsersController, HealthController],
+  controllers: [UsersController, HealthController, InternalController],
   providers: [
     JwtStrategy,
     JwtAuthGuard,
