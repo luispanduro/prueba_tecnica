@@ -12,7 +12,9 @@
       "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\@open-draft\\\\deferred-promise\\\\package.json\" | ConvertFrom-Json; [PSCustomObject]@{ version=$p.version; type=$p.type; main=$p.main; exports=\\($p.exports | ConvertTo-Json -Depth 4 -Compress\\) })",
       "PowerShell($p = Get-Content \"C:\\\\Users\\\\luisp\\\\Documents\\\\Prueba_tecnica\\\\toka-user-mgmt\\\\frontend\\\\node_modules\\\\jest-environment-jsdom\\\\package.json\" | ConvertFrom-Json; Write-Host \"jest-environment-jsdom: $\\($p.version\\)\"; $jsdom = $p.dependencies.jsdom; Write-Host \"jsdom dep: $jsdom\")",
       "PowerShell(docker compose version *)",
-      "PowerShell(Copy-Item *)"
+      "PowerShell(Copy-Item *)",
+      "PowerShell(docker version *)",
+      "PowerShell(docker compose up *)"
     ]
   }
 }

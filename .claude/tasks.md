@@ -2323,9 +2323,9 @@ Verificar que el coverage report en `coverage/lcov-report/index.html` muestra:
 | ai-service | 70% | 70% |
 
 **Criterios de aceptación**:
-- [ ] `npm run test:cov` pasa (exit 0) en los 5 microservicios
-- [ ] Ningún microservicio tiene coverage por debajo del umbral configurado en `jest.config.ts`
-- [ ] Los reports HTML están generados en `services/<name>/coverage/lcov-report/index.html`
+- [x] `npm run test:cov` pasa (exit 0) en los 5 microservicios
+- [x] Ningún microservicio tiene coverage por debajo del umbral configurado en `jest.config.ts`
+- [x] Los reports HTML están generados en `services/<name>/coverage/lcov-report/index.html`
 
 ---
 
